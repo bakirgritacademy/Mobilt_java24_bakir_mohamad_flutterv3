@@ -1,16 +1,23 @@
-# bakir_mohamad_flutterv3
+# Flutter v3 – Crossplattform Applikation
 
-bakir.mohamad.flutterv3
+Detta projekt är en Flutter-applikation utvecklad för att köras både på **Android** och **Web**. Syftet är att visa hur en och samma kodbas i Dart kan kompileras och användas på flera plattformar utan att behöva skrivas om.
 
-## Getting Started
+## Funktioner
+- Två sidor (`HomePage` och `ProfilePage`) som navigeras mellan med `Navigator`.
+- Tre interaktiva widgets:  
+  - `TextFormField` för att skriva in användarnamn  
+  - `Checkbox` för att acceptera villkor  
+  - `ElevatedButton` för att navigera till profilsidan  
+- Bildvisning från både lokal resurs (`Image.asset`) och webben (`Image.network`).
+- Data sparas med `SharedPreferences` så att användarnamn och villkorsstatus finns kvar efter omstart.  
+- Anpassad appikon för Android samt favicon för webben.
 
-This project is a starting point for a Flutter application.
+## Plattformsskillnader
+På **Android** kompileras Dart-koden till **native ARM/ARM64-maskinkod** med AOT (Ahead-of-Time compilation). Flutter använder sin egen grafikmotor **Skia** för att rendera UI, vilket ger en app som känns som en vanlig mobilapplikation.  
+På **Web** kompileras samma kod istället till **JavaScript** med `dart2js`. UI renderas i webbläsaren med **HTML/CSS** och **CanvasKit (WebGL)**. Data lagras i webbläsarens `localStorage` istället för filsystemet som på Android.
 
-A few resources to get you started if this is your first Flutter project:
+## Bygga projektet
+- **APK:** `flutter build apk` → `build/app/outputs/flutter-apk/app-release.apk`  
+- **Web:** `flutter build web` → `build/web/`  
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Applikationen visar därmed tydligt styrkan i Flutter: **ett gemensamt kodbibliotek för flera plattformar.**
